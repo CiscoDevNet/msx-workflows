@@ -1,0 +1,78 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_01NQSX6AEGAEX28LMg5vG8kWK0fvdOSB8fM",
+    "name": "Helper To Assit on Fix",
+    "title": "Helper To Assit on Fix",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Helper To Assit on Fix",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_01NQSXBN81KRD1RvJfUuoBsi6Myv8JwGO99",
+        "name": "Get DNAC Token",
+        "title": "Get DNAC Token",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "display_name": "Get DNAC Token",
+          "runtime_user": {
+            "target_default": true
+          },
+          "target": {
+            "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+            "use_workflow_target": true
+          },
+          "workflow_id": "definition_workflow_01MK0VHSV1RIM4qXIDPmnV664chsZ8yOAkK"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01NQSXI6D2H1J13eSKINk8PbupxZCtgHivj",
+        "name": "Get Task ID",
+        "title": "Get Task ID",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Get Task ID",
+          "input": {
+            "variable_workflow_01MXNHOI45A294TLtoWY8Zt1l5jxFpQH1hv": "$activity.definition_activity_01NQSXBN81KRD1RvJfUuoBsi6Myv8JwGO99.output.variable_workflow_01MK5MDHVB2315cFn5f6ZEmpe5hE4QvkA9p$"
+          },
+          "runtime_user": {
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "no_target": true
+          },
+          "workflow_id": "definition_workflow_01MXNG0KEEZFY4tZ9xFzej731gBSpkNrzwO"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "atomic_workflows": [
+    "definition_workflow_01MK0VHSV1RIM4qXIDPmnV664chsZ8yOAkK",
+    "definition_workflow_01MXNG0KEEZFY4tZ9xFzej731gBSpkNrzwO"
+  ]
+}
