@@ -11,6 +11,19 @@
         "properties": {
           "value": "",
           "scope": "input",
+          "name": "Name",
+          "type": "datatype.string",
+          "description": "Descriptive name identifying the SNMPv2 credentials",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_01NELZI1VONMF2cw3UqKWT47VMKiiNKNNV2",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
           "name": "Comments",
           "type": "datatype.string",
           "description": "Comments giving details about the SNMPv2 credentiasl",
@@ -30,19 +43,6 @@
           "is_required": true
         },
         "unique_name": "variable_workflow_01NEM0YZLOZW06NQTdL4HYKKEVDBDK0m2kf",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Name",
-          "type": "datatype.string",
-          "description": "Descriptive name identifying the SNMPv2 credentials",
-          "is_required": true
-        },
-        "unique_name": "variable_workflow_01NELZI1VONMF2cw3UqKWT47VMKiiNKNNV2",
         "object_type": "variable_workflow"
       }
     ],
@@ -77,7 +77,7 @@
             "target_default": true
           },
           "target": {
-            "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+            "target_type": "01NE987FKDCKZ7FrHoLc5hFSjkdxushbTyT",
             "use_workflow_target": true
           },
           "workflow_id": "definition_workflow_01MK0VHSV1RIM4qXIDPmnV664chsZ8yOAkK"
@@ -85,26 +85,27 @@
         "object_type": "definition_activity"
       },
       {
-        "unique_name": "definition_activity_01NEQIDWW4IHM6HFjsFteEJPzBgqgLzfDuY",
+        "unique_name": "definition_activity_01OGDNEVJ3JZ72QYHuHohW0H5xucwQbXYkz",
         "name": "HTTP Request",
-        "title": "createSNMPReadCredentials",
+        "title": "createSNMPv2ReadCommunity",
         "type": "web-service.http_request",
         "base_type": "activity",
         "properties": {
+          "accept": "application/json",
           "action_timeout": 180,
           "allow_auto_redirect": true,
-          "body": "[{\n    \"credentialType\": \"GLOBAL\",\n    \"description\": \"$workflow.definition_workflow_01NELX5GZ1S9V0r9iMPT80t2RTPTm0CHiWT.input.variable_workflow_01NELZI1VONMF2cw3UqKWT47VMKiiNKNNV2$\" ,\n    \"comments\" : \"$workflow.definition_workflow_01NELX5GZ1S9V0r9iMPT80t2RTPTm0CHiWT.input.variable_workflow_01NEM0J5XU25K3u53lr56E6zU0EGJknfAYD$\",\n    \"readCommunity\": \"$workflow.definition_workflow_01NELX5GZ1S9V0r9iMPT80t2RTPTm0CHiWT.input.variable_workflow_01NEM0YZLOZW06NQTdL4HYKKEVDBDK0m2kf$\"\n}]",
+          "body": "[\n  {\n    \"description\": \"$workflow.definition_workflow_01NELX5GZ1S9V0r9iMPT80t2RTPTm0CHiWT.input.variable_workflow_01NELZI1VONMF2cw3UqKWT47VMKiiNKNNV2$\",\n    \"readCommunity\": \"$workflow.definition_workflow_01NELX5GZ1S9V0r9iMPT80t2RTPTm0CHiWT.input.variable_workflow_01NEM0YZLOZW06NQTdL4HYKKEVDBDK0m2kf$\",\n    \"comments\": \"$workflow.definition_workflow_01NELX5GZ1S9V0r9iMPT80t2RTPTm0CHiWT.input.variable_workflow_01NEM0J5XU25K3u53lr56E6zU0EGJknfAYD$\"\n  }\n]",
+          "content_type": "application/json",
           "continue_on_error_status_code": false,
-          "continue_on_failure": false,
+          "continue_on_failure": true,
           "custom_headers": [
             {
-              "name": "x-auth-token",
+              "name": "X-Auth-Token",
               "value": "$activity.definition_activity_01NEM20HAVV9J3HfRaKbTZQPBnjkn9AKxA1.output.variable_workflow_01MK5MDHVB2315cFn5f6ZEmpe5hE4QvkA9p$"
             }
           ],
-          "description": "Creates SNMPv2 Credentials (Read \u0026 Write Communities) at the global  DNAC Network Settings.  ",
-          "display_name": "createSNMPReadCredentials",
-          "method": "GET",
+          "display_name": "createSNMPv2ReadCommunity",
+          "method": "POST",
           "relative_url": "dna/intent/api/v1/global-credential/snmpv2-read-community",
           "runtime_user": {
             "override_target_runtime_user": false,
@@ -141,7 +142,7 @@
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$activity.definition_activity_01NEQIDWW4IHM6HFjsFteEJPzBgqgLzfDuY.output.succeeded$",
+                "left_operand": "$activity.definition_activity_01OGDNEVJ3JZ72QYHuHohW0H5xucwQbXYkz.output.succeeded$",
                 "operator": "eq",
                 "right_operand": true
               },
@@ -161,7 +162,7 @@
                   "continue_on_failure": false,
                   "display_name": "Get Task ID",
                   "input": {
-                    "variable_workflow_01MXNHOI45A294TLtoWY8Zt1l5jxFpQH1hv": "$activity.definition_activity_01NEQIDWW4IHM6HFjsFteEJPzBgqgLzfDuY.output.response_body$"
+                    "variable_workflow_01MXNHOI45A294TLtoWY8Zt1l5jxFpQH1hv": "$activity.definition_activity_01OGDNEVJ3JZ72QYHuHohW0H5xucwQbXYkz.output.response_body$"
                   },
                   "runtime_user": {
                     "target_default": true
@@ -194,7 +195,7 @@
                   },
                   "skip_execution": false,
                   "target": {
-                    "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+                    "target_type": "01NE987FKDCKZ7FrHoLc5hFSjkdxushbTyT",
                     "use_workflow_target": true
                   },
                   "workflow_id": "definition_workflow_01MXAD4QSM6T16VVmFywNJ2KdSoMqP2KKkb"
@@ -219,7 +220,7 @@
                   },
                   "skip_execution": false,
                   "target": {
-                    "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+                    "target_type": "01NE987FKDCKZ7FrHoLc5hFSjkdxushbTyT",
                     "use_workflow_target": true
                   },
                   "workflow_id": "definition_workflow_01MXQPPISSHJ62eqUYR71NdwVuHXM5z9DJr"
@@ -320,7 +321,7 @@
             "base_type": "activity",
             "properties": {
               "condition": {
-                "left_operand": "$activity.definition_activity_01NEQIDWW4IHM6HFjsFteEJPzBgqgLzfDuY.output.succeeded$",
+                "left_operand": "$activity.definition_activity_01OGDNEVJ3JZ72QYHuHohW0H5xucwQbXYkz.output.succeeded$",
                 "operator": "eq",
                 "right_operand": false
               },
@@ -340,7 +341,7 @@
                   "completion_type": "failed-completed",
                   "continue_on_failure": false,
                   "display_name": "Failed",
-                  "result_message": "Reason($activity.definition_activity_01NEQIDWW4IHM6HFjsFteEJPzBgqgLzfDuY.output.error.code$), $activity.definition_activity_01NEQIDWW4IHM6HFjsFteEJPzBgqgLzfDuY.output.error.message$",
+                  "result_message": "Reason($activity.01OGDM8Q1XVZV0MCSlxN36HFSPO9yXuuipA.output.error.code$), $activity.01OGDM8Q1XVZV0MCSlxN36HFSPO9yXuuipA.output.error.message$",
                   "skip_execution": false
                 },
                 "object_type": "definition_activity"
@@ -367,8 +368,8 @@
     }
   },
   "atomic_workflows": [
-    "definition_workflow_01MXNG0KEEZFY4tZ9xFzej731gBSpkNrzwO",
     "definition_workflow_01MK0VHSV1RIM4qXIDPmnV664chsZ8yOAkK",
+    "definition_workflow_01MXNG0KEEZFY4tZ9xFzej731gBSpkNrzwO",
     "definition_workflow_01MXAD4QSM6T16VVmFywNJ2KdSoMqP2KKkb",
     "definition_workflow_01MXQPPISSHJ62eqUYR71NdwVuHXM5z9DJr"
   ]

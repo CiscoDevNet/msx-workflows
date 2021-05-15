@@ -11,6 +11,32 @@
         "properties": {
           "value": "",
           "scope": "input",
+          "name": "Comments",
+          "type": "datatype.string",
+          "description": "Comments about the CLI credentials",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01NEUDGWK6BGA3UJzGKSMSp2ZkZu6mhOppO",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Enable Password",
+          "type": "datatype.string",
+          "description": "Password for enabled execution mode",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_01NEUE02B7SU60cftlGQYvqptsm8v63lwR8",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
           "name": "Name",
           "type": "datatype.string",
           "description": "Descriptive name for the CLI credentials",
@@ -43,32 +69,6 @@
           "is_required": true
         },
         "unique_name": "variable_workflow_01NEUF9U9U5GT0RqeXRx4N6klQFZkwJ1Try",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Comments",
-          "type": "datatype.string",
-          "description": "Comments about the CLI credentials",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01NEUDGWK6BGA3UJzGKSMSp2ZkZu6mhOppO",
-        "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "input",
-          "name": "Enable Password",
-          "type": "datatype.string",
-          "description": "Password for enabled execution mode",
-          "is_required": true
-        },
-        "unique_name": "variable_workflow_01NEUE02B7SU60cftlGQYvqptsm8v63lwR8",
         "object_type": "variable_workflow"
       }
     ],
@@ -103,7 +103,7 @@
             "target_default": true
           },
           "target": {
-            "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+            "target_type": "01NE987FKDCKZ7FrHoLc5hFSjkdxushbTyT",
             "use_workflow_target": true
           },
           "workflow_id": "definition_workflow_01MK0VHSV1RIM4qXIDPmnV664chsZ8yOAkK"
@@ -120,6 +120,7 @@
           "action_timeout": 180,
           "allow_auto_redirect": true,
           "body": "[{\n  \"credentialType\": \"GLOBAL\",\n  \"description\": \"$workflow.definition_workflow_01NEU7XIC71Q82Y8LFe2t9d7BX8lz42FWCv.input.variable_workflow_01NEUEGICMK6Y23CqQIqv7pCzH6lsbUF8qK$\",\n  \"enablePassword\" : \"$workflow.definition_workflow_01NEU7XIC71Q82Y8LFe2t9d7BX8lz42FWCv.input.variable_workflow_01NEUE02B7SU60cftlGQYvqptsm8v63lwR8$\",\n  \"password\" : \"$workflow.definition_workflow_01NEU7XIC71Q82Y8LFe2t9d7BX8lz42FWCv.input.variable_workflow_01NEUEW5BQ6UP0pd81uZ1mj0qz2avJOJCWu$\",\n  \"username\" : \"$workflow.definition_workflow_01NEU7XIC71Q82Y8LFe2t9d7BX8lz42FWCv.input.variable_workflow_01NEUF9U9U5GT0RqeXRx4N6klQFZkwJ1Try$\",\n  \"comments\" : \"$workflow.definition_workflow_01NEU7XIC71Q82Y8LFe2t9d7BX8lz42FWCv.input.variable_workflow_01NEUDGWK6BGA3UJzGKSMSp2ZkZu6mhOppO$\"\n}]",
+          "content_type": "application/json",
           "continue_on_error_status_code": false,
           "continue_on_failure": false,
           "custom_headers": [
@@ -219,7 +220,7 @@
                   },
                   "skip_execution": false,
                   "target": {
-                    "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+                    "target_type": "01NE987FKDCKZ7FrHoLc5hFSjkdxushbTyT",
                     "use_workflow_target": true
                   },
                   "workflow_id": "definition_workflow_01MXAD4QSM6T16VVmFywNJ2KdSoMqP2KKkb"
@@ -244,7 +245,7 @@
                   },
                   "skip_execution": false,
                   "target": {
-                    "target_type": "01MM0U7SEXWY938TKbLcXDPcfXVz9wNaxzX",
+                    "target_type": "01NE987FKDCKZ7FrHoLc5hFSjkdxushbTyT",
                     "use_workflow_target": true
                   },
                   "workflow_id": "definition_workflow_01MXQPPISSHJ62eqUYR71NdwVuHXM5z9DJr"
@@ -392,9 +393,9 @@
     }
   },
   "atomic_workflows": [
-    "definition_workflow_01MXAD4QSM6T16VVmFywNJ2KdSoMqP2KKkb",
-    "definition_workflow_01MXQPPISSHJ62eqUYR71NdwVuHXM5z9DJr",
+    "definition_workflow_01MXNG0KEEZFY4tZ9xFzej731gBSpkNrzwO",
     "definition_workflow_01MK0VHSV1RIM4qXIDPmnV664chsZ8yOAkK",
-    "definition_workflow_01MXNG0KEEZFY4tZ9xFzej731gBSpkNrzwO"
+    "definition_workflow_01MXAD4QSM6T16VVmFywNJ2KdSoMqP2KKkb",
+    "definition_workflow_01MXQPPISSHJ62eqUYR71NdwVuHXM5z9DJr"
   ]
 }
