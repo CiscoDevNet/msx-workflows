@@ -47,7 +47,8 @@
     ],
     "properties": {
       "atomic": {
-        "is_atomic": false
+        "atomic_group": "Cisco DNAC",
+        "is_atomic": true
       },
       "delete_workflow_instance": false,
       "description": "//\n// Copyright (c) 2021 Cisco Systems, Inc and its affiliates\n// All Rights reserved\n//\n\nParses JSON object to retrieve DNAC Task Id",

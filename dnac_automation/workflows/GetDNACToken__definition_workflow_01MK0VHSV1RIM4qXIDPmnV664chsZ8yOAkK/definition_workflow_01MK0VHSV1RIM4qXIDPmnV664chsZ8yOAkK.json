@@ -11,9 +11,21 @@
         "properties": {
           "value": "",
           "scope": "output",
-          "name": "Token",
+          "name": "Error Message",
           "type": "datatype.string",
-          "description": "DNAC API Session Token",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_01MK2ECB12QRA6Z6Or6iZ9dQon2za9gKJfh",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "X-Auth-Token",
+          "type": "datatype.string",
+          "description": "DNAC Authorization Token",
           "is_required": false
         },
         "unique_name": "variable_workflow_01MK5MDHVB2315cFn5f6ZEmpe5hE4QvkA9p",
@@ -30,23 +42,12 @@
         },
         "unique_name": "variable_workflow_01MK1BKGXAHN05ZtRJaPLPygXySiSP6LxqF",
         "object_type": "variable_workflow"
-      },
-      {
-        "schema_id": "datatype.string",
-        "properties": {
-          "value": "",
-          "scope": "output",
-          "name": "Error Message",
-          "type": "datatype.string",
-          "is_required": false
-        },
-        "unique_name": "variable_workflow_01MK2ECB12QRA6Z6Or6iZ9dQon2za9gKJfh",
-        "object_type": "variable_workflow"
       }
     ],
     "properties": {
       "atomic": {
-        "is_atomic": false
+        "atomic_group": "Cisco DNAC",
+        "is_atomic": true
       },
       "delete_workflow_instance": false,
       "description": "//\n// Copyright (c) 2021 Cisco Systems, Inc and its affiliates\n// All Rights reserved\n//\n\nRetrieves DNAC Auth token",
